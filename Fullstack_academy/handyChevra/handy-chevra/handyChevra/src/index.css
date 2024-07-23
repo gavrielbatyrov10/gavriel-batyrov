@@ -1,0 +1,230 @@
+* {
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.Navbar {
+  background-color: #3068c1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+.nav__wrapper {
+  height: 90px;
+
+}
+
+.header__img {
+  width: 3rem;
+}
+
+.img__wrapper {
+  display: flex;
+}
+
+.nav__links {
+  display: flex;
+}
+
+.Navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.Navbar li a {
+  display: block;
+  color: #ff00e7;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  position: relative;
+}
+
+.Navbar li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #ff00e7;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.Navbar li a:hover::after {
+  width: 100%;
+}
+
+.Navbar li a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  top: 0;
+  right: 50%;
+  background-color: #ff00e7;
+  transition: all 0.3s ease;
+  transform: translateX(50%);
+}
+
+.Navbar li a:hover::before {
+  width: 100%;
+}
+
+.header {
+  margin: 20px;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  padding: 1rem;
+  color: white;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.header__title {
+  margin: 20px;
+  padding: 30px;
+}
+
+/* landing */
+
+.landing {
+  background-color: #ff00e7;
+  height: 90vh;
+}
+
+.landing__img {
+  width: 15rem;
+  margin-top: 3rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  line-height: 1.5;
+}
+
+.landing__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__header {
+  width: 30rem;
+  color: #0e5abd;
+  font-weight: bold;
+  font-size: 70px;
+  text-align: center;
+}
+
+.landing__para {
+  width: 20rem;
+}
+
+.certified__wrapper {
+  display: flex;
+  font-size: 50px;
+}
+
+
+/* service */
+
+.service__header {
+  border: 2px solid #ff00e7;
+  color: #0e5abd;
+  margin-top: 60px;
+  padding: 10px;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+
+.ServiceList ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.ServiceList li {
+  text-align: center;
+  width: 400px;
+  background: #0e5abd;
+  color: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.ServiceDetail ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  margin: auto;
+  max-width: 600px;
+}
+
+.ServiceDetail li {
+  background: #f9f9f9;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.Testimonials ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.Testimonials li {
+  background: #f0f0f0;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.Contact {
+  margin: 20px 0;
+}
+
+.Contact p {
+  margin: 5px 0;
+}
+
+.Footer {
+  background-color: #282c34;
+  color: white;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
