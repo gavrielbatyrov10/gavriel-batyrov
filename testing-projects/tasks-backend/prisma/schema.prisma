@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js" // Specifies the Prisma Client generator
+}
+
+datasource db {
+  provider = "sqlite" // Database provider is SQLite
+  url      = env("DATABASE_URL") // URL to connect to the database, retrieved from environment variables
+}
+
+model Author {
+  id    Int     @id @default(autoincrement()) // Primary key with auto-incrementing integer
+  name  String // Name of the author
+  bio   String? // Optional biography field of the author
+  books Book[]  @relation("AuthorBooksRelation") // Relation to the Book model with a specific relation name
+}
+
+model Book {
+  id          Int        @id @default(autoincrement()) // Primary key with auto-incrementing integer
+  title       String // Title of the book
+  published   Boolean    @default(true) // Whether the book is published, default is true
+  author      Author?    @relation("AuthorBooksRelation", fields: [authorId], references: [id]) // Relation to the Author model
+  authorId    Int? // Foreign key for the author
+  publisherId Int? // Foreign key for the publisher
+  genres      Genre[]    @relation("BookGenresRelation") // Many-to-many relation with Genre model
+  reviews     Review[]   @relation("BookReviewsRelation") // One-to-many relation with Review model
+  publisher   Publisher? @relation("PublisherBooksRelation", fields: [publisherId], references: [id]) // Relation to the Publisher model
+
+  @@map("books") // Maps the model to the "books" table in the database
+}
+
+model Publisher {
+  id    Int    @id @default(autoincrement()) // Primary key with auto-incrementing integer
+  name  String @unique // Unique name of the publisher
+  books Book[] @relation("PublisherBooksRelation") // One-to-many relation with Book model
+
+  @@map("publishers") // Maps the model to the "publishers" table in the database
+}
+
+model Genre {
+  id    Int    @id @default(autoincrement()) // Primary key with auto-incrementing integer
+  name  String @unique // Unique name of the genre
+  books Book[] @relation("BookGenresRelation") // Many-to-many relation with Book model
+
+  @@map("genres") // Maps the model to the "genres" table in the database
+}
+
+model Review {
+  id      Int     @id @default(autoincrement()) // Primary key with auto-incrementing integer
+  rating  Int     @default(0) // Rating of the review, default is 0
+  comment String? // Optional comment for the review
+  book    Book    @relation("BookReviewsRelation", fields: [bookId], references: [id]) // Relation to the Book model
+  bookId  Int // Foreign key for the book
+
+  @@map("reviews") // Maps the model to the "reviews" table in the database
+}
